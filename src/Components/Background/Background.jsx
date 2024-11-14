@@ -16,15 +16,15 @@ const Background = ({playStatus,heroCount}) => {
     }
     else if (heroCount===0)
     {
-      return <img src={image2} className='background fade-in' alt="" />
+      return <img src={image2} loading='eager' className='background fade-in' alt="" />
     }
     else if (heroCount===1)
     {
-      return <img src={image8} className='background fade-in' alt="" />
+      return <img src={image8} loading='eager' className='background fade-in' alt="" />
     }
     else if (heroCount===2)
     {
-      return <img src={image6} className='background fade-in' alt="" />
+      return <img src={image6} loading='eager' className='background fade-in' alt="" />
     }
 }
 

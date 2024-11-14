@@ -11,9 +11,9 @@ import Copyright from "./Components/Copyright/Copyright";
 
 const App = () => {
   let heroData = [
-    {text1:"Dive into",text2:"what you love"},
-    {text1:"Indulge",text2:"your passions"},
-    {text1:"Give in to",text2:"your passions"},
+    { text1: "Dive into", text2: "what you love" },
+    { text1: "Indulge", text2: "your passions" },
+    { text1: "Give in to", text2: "your passions" },
   ];
 
   const [heroCount, setHeroCount] = useState(0);
@@ -25,36 +25,42 @@ const App = () => {
   const aboutRef = useRef(null);
 
   const scrollToHome = () => {
-    homeRef.current?.scrollIntoView({ behavior: 'smooth' });
+    homeRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToExplore = () => {
-    exploreRef.current?.scrollIntoView({ behavior: 'smooth' });
+    exploreRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToAbout = () => {
-    aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
+    aboutRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const scrollToContact = () => {
-    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
+    contactRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000); 
-
-    return () => clearTimeout(timer); 
+    setInterval(() => {
+      setHeroCount((count) => (count === 2 ? 0 : count + 1));
+    }, 8000);
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setHeroCount((count) => (count === 2 ? 0 : count + 1));
-    }, 8000);
-
-    return () => clearInterval(interval); 
+    
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+    return () => clearTimeout(timer);
   }, []);
+
+  if (loading) {
+    return (
+      <div className="spinner-border text-primary" style={{ width: "4rem", height: "4rem" }} role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    );
+  }
 
   return (
     <Router>
@@ -62,64 +68,40 @@ const App = () => {
         <Route
           path="/"
           element={
-            loading ? (
-              <div style={spinnerContainerStyle}>
-                <div className="spinner-border text-primary" role="status" style={spinnerStyle}>
-                  <span className="visually-hidden">Loading...</span>
-                </div>
-              </div>
-            ) : (
-              <div ref={homeRef}>
-                <Background playStatus={playStatus} heroCount={heroCount} />
-                <Navbar
-                  onHomeClick={scrollToHome}
-                  onExploreClick={scrollToExplore}
-                  onAboutClick={scrollToAbout}
-                  onContactClick={scrollToContact}
+            <div ref={homeRef}>
+              <Background playStatus={playStatus} heroCount={heroCount} />
+              <Navbar
+                onHomeClick={scrollToHome}
+                onExploreClick={scrollToExplore}
+                onAboutClick={scrollToAbout}
+                onContactClick={scrollToContact}
+              />
+              <>
+                <Hero
+                  setPlayStatus={setPlayStatus}
+                  heroData={heroData[heroCount]}
+                  heroCount={heroCount}
+                  setHeroCount={setHeroCount}
+                  playStatus={playStatus}
                 />
-                <>
-                  <Hero
-                    setPlayStatus={setPlayStatus}
-                    heroData={heroData[heroCount]}
-                    heroCount={heroCount}
-                    setHeroCount={setHeroCount}
-                    playStatus={playStatus}
-                  />
-                  <div ref={exploreRef}>
-                    <Explore />
-                  </div>
-
-                  <Box />
-
-                  <div ref={aboutRef}>
-                    <About />
-                  </div>
-                  <div ref={contactRef}>
-                    <Contact />
-                  </div>
-
-                  <Copyright />
-                </>
-              </div>
-            )
+                <div ref={exploreRef}>
+                  <Explore />
+                </div>
+                <Box />
+                <div ref={aboutRef}>
+                  <About />
+                </div>
+                <div ref={contactRef}>
+                  <Contact />
+                </div>
+                <Copyright />
+              </>
+            </div>
           }
         />
       </Routes>
     </Router>
   );
-};
-
-
-const spinnerContainerStyle = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  height: "100vh", 
-};
-
-const spinnerStyle = {
-  width: "100px",  
-  height: "100px", 
 };
 
 export default App;
