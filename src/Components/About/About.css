@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy&display=swap');
+
+.about-container {
+    padding: 80px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-1 {
+    flex-basis: 35%;
+}
+
+.about-1 img {
+    width: 100%;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.about-2 {
+    flex-basis: 60%;
+}
+
+.about-2 h1 {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #000000;
+    padding: 5px;
+    margin-top: 30px;
+    margin-bottom: 30px;    
+    width: max-content;
+}
+
+.info {
+    margin-top: 20px;
+    background: transparent;
+}
+
+.info h5{
+    color: #000000;
+    font-size: 25px;
+    font-weight: 500;
+} 
+
+.info p{
+    color: rgb(66, 112, 158);
+}
+
+
+span {
+    font-family: "Satisfy", cursive;
+}
+
+text {
+    color: #F95454;
+    font-family: "Satisfy", cursive;
+}
+
+.hold::first-letter {
+    font-size: 28px;
+    color: #F95454;
+}
+
+@media screen and (max-width: 900px) {
+    .about-1 {
+        flex-basis: 27%;
+    }
+    
+    .about-1 img {
+        width: 150%;
+        border-radius: 8px;
+        border: 2px solid #ccc;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        margin-top: 90px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .about-col-1, .about-col-2 {
+        flex-basis: 100%;
+    }
+    
+    .about-1 img {
+        width: 300px;
+        border-radius: 8px;
+        border: 2px solid #ccc;
+        margin-left: -20%;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    
+    .about-2 h1 {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        color: #000000;
+        padding: 5px;
+        margin-top: 20px;
+        margin-bottom: 30px;    
+        width: max-content;
+    }
+
+    .info {
+        margin-left: -20px;
+    }
+
+    .hold {
+        margin-top: -20px;
+        font-size: 15px;
+        width: 130%;
+        margin-left: -20px;
+    }
+
+    .about-container{
+        margin-top: -70px;
+    }
+}

@@ -1,0 +1,150 @@
+
+.hero{
+    margin: 0px 120px;
+    margin-top: 270px;
+}
+
+.hero-text {
+    margin-left: -37px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 55px;
+}
+
+
+.hero-explore{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    width: fit-content;
+    margin-left: -37px;
+    margin-top: 40px;
+    padding: 5px 8px;
+    padding-left: 30px;
+    border-radius: 50px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.hero-explore p {
+    color: #292929;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 18px;
+}
+
+.hero-dot-play {
+    margin-top: 20px;
+    display: inline;
+    justify-content: space-between;
+}
+
+.hero-dots {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+    list-style: none;
+}
+
+.hero-dot {
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 60%;
+    cursor: pointer;
+    margin-top: 120px;
+}
+
+.hero-dot.orange{
+  background: orangered;
+}
+
+.hero-play {
+    display: flex; 
+    justify-content: flex-end; 
+}
+  
+.hero-play img {
+    margin-right: 10px; 
+    cursor: pointer;
+    margin-top: -60px;
+    padding: 5px;
+
+}
+  
+
+.hero-play p {
+    color: #fff;
+    font-size: 19px;
+    display: inline;
+    margin-top: -27px;
+}
+
+@media screen and (max-width: 900px) {
+    .hero-play {
+        display: none;
+    }
+
+    .hero-explore{
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        width: fit-content;
+        margin-left: -30px;
+        margin-top: 40px;
+        padding: 5px 8px;
+        padding-left: 30px;
+        border-radius: 50px;
+        background-color: #fff;
+        cursor: pointer;
+    }
+    
+    .hero-explore p {
+        color: #292929;
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 15px;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .hero-play {
+        display: none;
+    }
+
+    .hero-text {
+        margin-left: -80px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 50px;
+    }
+
+    .hero-text p {
+        margin-top: -20px;
+    }
+
+    .hero-explore{
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        width: fit-content;
+        margin-left: -80px;
+        margin-top: 40px;
+        padding: 5px 8px;
+        padding-left: 30px;
+        border-radius: 100px;
+        background-color: #fff;
+        cursor: pointer;
+    }
+    
+    .hero-explore p {
+        color: #292929;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: -1.1;
+        margin-top: 15px;
+    }
+}

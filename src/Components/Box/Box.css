@@ -1,0 +1,158 @@
+.car {
+    margin-top: 10px;
+    text-align: center; 
+}
+
+.car h1 {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #fff;
+    border: 1px solid #F95454;
+    background: #F95454;
+    padding: 5px;
+    margin-top: 30px;
+    margin-bottom: 30px;    
+    width: max-content;
+}
+
+.car h4 {
+  font-size: 15px;
+  color: #abaaab;
+  text-align: center;
+}
+
+strong {
+  color: black;
+}
+
+
+.car-models {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap; 
+  margin-top: 35px;
+  justify-content: center;
+  padding: 50px;
+}
+
+.models { 
+  flex: 0 0 calc(25%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.models:hover {
+  border: 1px solid #F95454; 
+  background: #fff9f9; 
+}
+
+.models img {
+  width: 160px;  
+  height: 100px; 
+  object-fit: cover; 
+  margin-bottom: 10px; 
+  cursor: pointer;
+}
+
+.models p {
+  font-size: 12px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+/*--------------------*/
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 5px; 
+  justify-items: center; 
+  margin-top: 35px; 
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+.price-search {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 100%;
+  max-width: 260px; 
+}
+
+.price-search h2 {
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.price-search a {
+  margin-top: auto; 
+  text-decoration: underline;
+  color: #007BFF;
+  font-size: 11px;
+}
+
+.price-search a:hover {
+  color: blue;
+}
+
+.price-search a:not(:last-child) {
+  margin-bottom: 5px; 
+}
+
+@media screen and (max-width: 900px) {
+  h4{
+      width: 80%;
+      margin-left: 10%;
+  }
+
+  .container{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 10px; 
+      justify-items: center; 
+      margin-top: 35px; 
+      margin-left: 50px;
+      margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .car h1{
+    font-size: 15px;
+  }
+  h4 {
+    margin-bottom: -15px;
+  }
+
+  .models {
+    padding: 30px;
+  }
+
+  .container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px; 
+    justify-items: center; 
+    margin-top: 35px; 
+    margin-left: 0px;
+    margin-bottom: 30px;
+  }
+
+  .price-search{
+    margin-bottom: 50px;
+  }
+}
+
+
+
+ 
+  
