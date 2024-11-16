@@ -10,34 +10,33 @@ import Contact from "./Components/Contact/Contact";
 import Copyright from "./Components/Copyright/Copyright";
 
 const App = () => {
+  const [loading, setLoading] = useState(true); 
   let heroData = [
-    { text1: "Dive into", text2: "what you love" },
-    { text1: "Indulge", text2: "your passions" },
-    { text1: "Give in to", text2: "your passions" },
+    {text1:"Dive into",text2:"what you love"},
+    {text1:"Indulge",text2:"your passions"},
+    {text1:"Give in to",text2:"your passions"},
   ];
-
   const [heroCount, setHeroCount] = useState(0);
   const [playStatus, setPlayStatus] = useState(false);
-  const [loading, setLoading] = useState(true);
   const exploreRef = useRef(null);
   const homeRef = useRef(null);
   const contactRef = useRef(null);
   const aboutRef = useRef(null);
 
   const scrollToHome = () => {
-    homeRef.current?.scrollIntoView({ behavior: "smooth" });
+    homeRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToExplore = () => {
-    exploreRef.current?.scrollIntoView({ behavior: "smooth" });
+    exploreRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToAbout = () => {
-    aboutRef.current?.scrollIntoView({ behavior: "smooth" });
+    aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToContact = () => {
-    contactRef.current?.scrollIntoView({ behavior: "smooth" });
+    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -47,20 +46,9 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 4000);
+    const timer = setTimeout(() => setLoading(false), 3000);
     return () => clearTimeout(timer);
   }, []);
-
-  if (loading) {
-    return (
-      <div className="spinner-border text-primary" style={{ width: "4rem", height: "4rem" }} role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
-    );
-  }
 
   return (
     <Router>
@@ -68,35 +56,41 @@ const App = () => {
         <Route
           path="/"
           element={
-            <div ref={homeRef}>
-              <Background playStatus={playStatus} heroCount={heroCount} />
-              <Navbar
-                onHomeClick={scrollToHome}
-                onExploreClick={scrollToExplore}
-                onAboutClick={scrollToAbout}
-                onContactClick={scrollToContact}
-              />
-              <>
-                <Hero
-                  setPlayStatus={setPlayStatus}
-                  heroData={heroData[heroCount]}
-                  heroCount={heroCount}
-                  setHeroCount={setHeroCount}
-                  playStatus={playStatus}
+            loading ? (
+              <div className="spinner-border text-primary" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            ) : (
+              <div ref={homeRef}>
+                <Background playStatus={playStatus} heroCount={heroCount} />
+                <Navbar
+                  onHomeClick={scrollToHome}
+                  onExploreClick={scrollToExplore}
+                  onAboutClick={scrollToAbout}
+                  onContactClick={scrollToContact}
                 />
-                <div ref={exploreRef}>
-                  <Explore />
-                </div>
-                <Box />
-                <div ref={aboutRef}>
-                  <About />
-                </div>
-                <div ref={contactRef}>
-                  <Contact />
-                </div>
-                <Copyright />
-              </>
-            </div>
+                <>
+                  <Hero
+                    setPlayStatus={setPlayStatus}
+                    heroData={heroData[heroCount]}
+                    heroCount={heroCount}
+                    setHeroCount={setHeroCount}
+                    playStatus={playStatus}
+                  />
+                  <div ref={exploreRef}>
+                    <Explore />
+                  </div>
+                  <Box />
+                  <div ref={aboutRef}>
+                    <About />
+                  </div>
+                  <div ref={contactRef}>
+                    <Contact />
+                  </div>
+                  <Copyright />
+                </>
+              </div>
+            )
           }
         />
       </Routes>
@@ -105,5 +99,6 @@ const App = () => {
 };
 
 export default App;
+
 
 
