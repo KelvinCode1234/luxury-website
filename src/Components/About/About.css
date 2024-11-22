@@ -57,14 +57,14 @@ span {
     font-family: "Satisfy", cursive;
 }
 
-text {
-    color: #F95454;
+.hold::first-letter {
     font-family: "Satisfy", cursive;
+    font-size: 25px;
+    color: #F95454;
 }
 
-.hold::first-letter {
-    font-size: 28px;
-    color: #F95454;
+b {
+    font-size: 20px;
 }
 
 @media screen and (max-width: 900px) {

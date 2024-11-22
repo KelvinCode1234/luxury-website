@@ -10,7 +10,7 @@ const About = () => {
                 <img src={Client} alt="Dannybest-Autos CEO" />
             </div>
             <div className="about-2">
-                <h1><span>About Dannybest-<text>Autos</text></span></h1>
+                <h1><span>About Dannybest-Autos</span></h1>
                 <p className="hold">Welcome to Dannybest-Autos <br/> <b>&ldquo;</b>I’m passionate about connecting my customers with quality vehicles that meet their needs, budget, and lifestyle. Whether you’re looking for a stylish car for city driving or a powerful vehicle with more space, I ensure each option is selected with care and attention to detail. My goal is to make your car-buying experience smooth, transparent, and enjoyable. Come explore my inventory and see why Dannybest-Autos is a dealership you can trust in car sales.<b>&rdquo;</b></p>
                 
                 <div className="info">
